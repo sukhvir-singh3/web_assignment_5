@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="col-md-12">
+        <h2>Images<a href="/images/add" class="btn btn-success pull-right">Add New Image</a></h2>
+        
+        <hr />
+    </div>
+    {{#if images.length}}
+        {{#each images}}
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <a href="{{this.url}}" target="_blank"><img src="{{this.imageUrl}}" class="img-responsive img-thumbnail" /></a>
+                    </div>
+                    <div class="panel-footer">
+                        <p><strong>Image ID:</strong> {{this.imageID}}</p>
+                        <p><strong>Version:</strong> {{this.version}}</p>
+                        <p><strong>Width:</strong> {{this.width}}</p>
+                        <p><strong>Height:</strong> {{this.height}}</p>
+                        <p><strong>Format:</strong> {{this.format}}</p>
+                        <p><strong>Resource Type:</strong> {{this.resourceType}}</p>
+                        <p><strong>Uploaded At:</strong> {{this.uploadedAt}}</p>
+                        <p><strong>Original File Name:</strong> {{this.originalFileName}}</p>
+                        <p><strong>Mime Type:</strong> {{this.mimeType}}</p>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    {{else}}
+        <div class="col-md-12 text-center">
+            <strong>No Images Available</strong>
+        </div>
+    {{/if}}
+</div>

@@ -1,0 +1,42 @@
+<div class="table-responsive">
+    <h2>Students<a href="/students/add" class="btn btn-success pull-right">Add New Student</a></h2> 
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Student ID</th>
+                <th>Full Name</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Expected Credential</th>
+                <th>Status</th>
+                <th>Program</th>
+                <th>Registration Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each students}}
+            <tr>
+                <td><a href="/student/{{this.studentID}}">{{this.studentID}}</a></td>
+                <td>{{this.firstName}} {{this.lastName}}</td>
+                <td><a href="mailto:{{this.email}}">{{this.email}}</a></td>
+                <td>{{this.addressStreet}}, {{this.addressCity}}, {{this.addressState}}, {{this.addressPostal}}</td>
+                <td><a href="/students?credential={{this.expectedCredential}}">{{this.expectedCredential}}</a></td>
+                <td><a href="/students?status={{this.status}}">{{this.status}}</a></td>
+                <td>
+                    <a href="/students?program={{this.program}}">
+                        {{#if this.program}}
+                        {{this.program}}
+                        {{else}}
+                        N/A
+                        {{/if}}
+                    </a>
+                </td>
+
+                <td>{{this.registrationDate}}</td>
+                <td ><a type="submit" class="btn btn-danger" href="/students/delete/{{this.studentID}}">Remove</a></td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
